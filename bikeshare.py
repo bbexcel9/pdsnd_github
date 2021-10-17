@@ -25,7 +25,7 @@ def get_filters():
         else:
             print("invalid input. Please enter a valid input")
     # get user input for month (all, january, february, ... , june)
-    while True:    
+    while True:
         month = input("Do you want details specific to a particular month? If yes, type month name from within first six months otherwise type 'all'")
         month = month.lower()
         if month in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
@@ -57,7 +57,7 @@ def load_data(city, month, day):
     """
      # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
@@ -71,14 +71,14 @@ def load_data(city, month, day):
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
 
     # filter by day of week if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
-        
+
         df = df[df['day_of_week'] == day.title()]
 
     return df
@@ -155,6 +155,7 @@ def user_stats(df, city):
         gender = df.groupby(['Gender'])['Gender'].count()
         print(gender)
         # Display earliest, most recent, and most common year of birth
+        # let earliest year of birth be: EYOB, most recent year of birth be: MRYOB, & Most common year of birth be: MCYOB
         earliest_yr_of_birth = sorted(df.groupby(['Birth Year'])['Birth Year'])[0][0]
         most_recent_yr_of_birth = sorted(df.groupby(['Birth Year'])['Birth Year'], reverse=True)[0][0]
         most_common_yr_of_birth = df['Birth Year'].value_counts().idxmax()
@@ -190,4 +191,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-    
