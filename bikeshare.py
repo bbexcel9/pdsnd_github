@@ -155,12 +155,13 @@ def user_stats(df, city):
         gender = df.groupby(['Gender'])['Gender'].count()
         print(gender)
         # Display earliest, most recent, and most common year of birth
-        earliest_yr_of_birth = sorted(df.groupby(['Birth Year'])['Birth Year'])[0][0]
-        most_recent_yr_of_birth = sorted(df.groupby(['Birth Year'])['Birth Year'], reverse=True)[0][0]
-        most_common_yr_of_birth = df['Birth Year'].value_counts().idxmax()
-        print("The earliest year of birth is ", earliest_yr_of_birth, "\n")
-        print("The most recent year of birth is ", most_recent_yr_of_birth, "\n")
-        print("The most common year of birth is ", most_common_yr_of_birth, "\n")
+        # let earliest year of birth be: EYOB, most recent year of birth be: MRYOB, & Most common year of birth be: MCYOB
+        EYOB = sorted(df.groupby(['Birth Year'])['Birth Year'])[0][0]
+        MRYOB = sorted(df.groupby(['Birth Year'])['Birth Year'], reverse=True)[0][0]
+        MCYOB = df['Birth Year'].value_counts().idxmax()
+        print("The earliest year of birth is ", EYOB, "\n")
+        print("The most recent year of birth is ", MRYOB, "\n")
+        print("The most common year of birth is ", MCYOB, "\n")
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
