@@ -39,3 +39,30 @@ In this project, _Python_ is used to explore data related to bike share systems 
 * [Git - Reference](https://git-scm.com/docs)
 * [The Python Tutorial](https://docs.python.org/3/tutorial/index.html)
 * [VS Code Documentation](https://code.visualstudio.com/docs)
+
+## **Code explained in Detail:**
+### **How the program works:**
+The code developed takes in raw input to create an interactive experience in the terminal that answers questions about the dataset. The experience is interactive because depending on a user's input, the answers to the questions will change! There are four questions that will change the answers:
+
+* Which city would you like to explore? _Chicago_, _New York_, or _Washington_?
+* Would the user like to filter the data by month, day, or all?
+* (If they chose month) Which month - _january_, _february_, _march_, _april_, _may_, _J
+june_ or _all_?
+* (If they chose day) Which day - _monday_, _tuesday_, _wednesday_, _thursday_, _friday_, _saturday_, _sunday_ or _all_?
+
+The answers to the questions above will determine the city and timeframe on which you'll do data analysis. After filtering the dataset, users will see the statistical result of the data, and choose to restart or exit.
+
+### **The Datasets:**
+Randomly selected data for the first six months of 2017 are provided for all three cities. All three of the data files contain the same core six (6) columns:
+
+* Start Time (e.g., 2017-01-01 00:07:57)
+* End Time (e.g., 2017-01-01 00:20:53)
+* Trip Duration (in seconds - e.g., 776)
+* Start Station (e.g., Broadway & Barry Ave)
+* End Station (e.g., Sedgwick St & North Ave)
+* User Type (Subscriber or Customer)
+
+The _Chicago_ and _New York City_ files also have the following two columns:
+
+* Gender
+* Birth Year
